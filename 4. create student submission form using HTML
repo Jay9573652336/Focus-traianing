@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        registration form
+    </title>
+    <script src="js/jquery.js"></script>
+</head>
+<body style="text-align: center;">
+    <h1>
+        Student’s Registration form
+    </h1>
+    <h3>
+        Fill the following details to register yourself
+    </h3>
+    <form action="" method="post">
+        <label for="">
+            Your Name
+        </label>
+        <input type="text" name="name" id="name">
+        <br><br>
+        <label for="">
+            Your Age
+        </label>
+        <input type="text" name="age" id="age">
+        <br><br>
+        <label for="">
+            Your email
+        </label>
+        <input type="email" name="email" id="email">
+        <br><br>
+        <label for="">
+            Your Password
+        </label>
+        <input type="password" name="password" id="password">
+        <br><br>
+        <input type="submit" value="Save" name="submit" id="register">
+    </form>
+    <script>
+        $(document).ready(function() {
+            $("#register").click(function() {
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var password = $("#password").val();
+                var cpassword = $("#age").val();
+                if (name == '' || email == '' || password == '' || cpassword == '') {
+                    alert("Please fill all fields...!!!!!!");
+                } else if ((password.length) < 8) {
+                    alert("Password should atleast 8 character in length...!!!!!!");
+                } else {
+                    $.post("register.php", {
+                        name: name,
+                        email: email,
+                        password: password
+                    }, function(rdata) {
+                        if (data == 'You have Successfully Registered..... Thanks') {
+                            $("form")[0].reset();
+                        }
+                        alert(rdata);
+                    });
+                }
+            });
+        });
+    </script>
+</html>
