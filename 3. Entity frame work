@@ -1,0 +1,18 @@
+using MvcDatabaseConnectivity_Demo.Models;  
+using System.Linq;  
+using System.Web.Mvc;  
+   
+namespace MvcDatabaseConnectivity_Demo.Controllers  
+{  
+    public class HomeController : Controller  
+    {  
+        private readonly StudentContext _dbContext = new StudentContext();  
+   
+        public ActionResult Index()  
+        {  
+            var Student = _dbContext.Student.ToList();  
+            return View(Student);  
+        }  
+    }  
+}  
+  
