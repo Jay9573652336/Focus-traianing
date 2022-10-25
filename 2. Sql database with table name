@@ -1,0 +1,7 @@
+CREATE TABLE StudentDetails (
+    Student id int  NOT NULL IDENTITY(1, 1),
+    Student_name char(128)  NOT NULL,
+    Student_mobile int NOT NULL,
+    Student_Address Char NOT NULL,
+    Student_Dept Char NOT NULL
+    );
